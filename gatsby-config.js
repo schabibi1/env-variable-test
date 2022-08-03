@@ -1,6 +1,11 @@
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV || 'production'}`
-});
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV || "production"}`,
+})
+
+console.log(
+  "👋 gatsby-config.js | process.env.GATSBY_PREVIEW_STORYBLOK: ",
+  process.env.GATSBY_PREVIEW_STORYBLOK
+)
 
 module.exports = {
   siteMetadata: {
@@ -35,13 +40,13 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-storyblok',
+      resolve: "gatsby-source-storyblok",
       options: {
         accessToken: process.env.GATSBY_PREVIEW_STORYBLOK,
-        version: process.env.NODE_ENV === 'production' ? 'published' : 'draft',
+        version: process.env.NODE_ENV === "production" ? "published" : "draft",
         localAssets: true, // Optional parameter to download the images to use with Gatsby Image Plugin
         // languages: ['de', 'at'] // Optional parameter. Omission will retrieve all languages by default.
-      }
+      },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
